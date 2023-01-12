@@ -1,6 +1,14 @@
 import React from "react";
 
 export default function Sidebar(props) {
+    const regPattern = /\n/;
+    const notesHeaders = props.notes.map(note => (
+        ...note
+        body: {note.body.split(regPattern).slice(undefined, 1)}
+    ))
+
+    console.log(notesHeaders);
+
     const noteElements = props.notes.map((note, index) => (
         <div key={note.id}>
             <div
