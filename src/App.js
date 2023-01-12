@@ -32,17 +32,33 @@ export default function App() {
     }
 
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }));
+        //Put the most recently-modified
+        //note to be ar the top
+
+        setNotes(oldNotes => {
+            const newArray = [];
+            for(let i = 0; i < oldNotes.length; i++) {
+                const oldNote = oldNotes[i]
+                if(oldNote.id === currentNoteId) {
+                    newArray.unshift({ ...oldNote, body: text })
+                } else {
+                    newArray.push(oldNote)
+                }
+            }
+            return newArray;
+        });
     }
 
     function findCurrentNote() {
         return notes.find(note => {
             return note.id === currentNoteId
         }) || notes[0]
+    }
+
+    function deleteNote(event, noteId) {
+        event.stopPropagation();
+        console.log(event, noteId);
+        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId));
     }
 
     return (
@@ -60,6 +76,7 @@ export default function App() {
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
+                    deleteNote={deleteNote}
                 />
                 {
                     currentNoteId && 
