@@ -3,16 +3,17 @@ import { View } from "./View";
 import { Empty } from "./Emtpy";
 
 export function Notes() {
-  const { create, remove, update, current, setCurrent, notes } = useNotes();
+  const { create, deleteNote, update, current, setCurrent, notes, popupToggle } = useNotes();
 
   return notes.length ? (
     <View
       create={create}
-      remove={remove}
+      deleteNote={deleteNote}
       update={update}
       current={current}
       setCurrent={setCurrent}
       notes={notes}
+      popupToggle={popupToggle}
     />
   ) : (
     <Empty create={create} />

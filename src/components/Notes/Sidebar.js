@@ -4,7 +4,7 @@ import { SideNote } from "./SideNote";
 export default function Sidebar({
   notes,
   setCurrent,
-  remove,
+  popupToggle,
   current,
   create,
 }) {
@@ -14,7 +14,7 @@ export default function Sidebar({
       note={note}
       setCurrent={setCurrent}
       current={current}
-      remove={remove}
+      popupToggle={popupToggle}
     />
   ));
 
