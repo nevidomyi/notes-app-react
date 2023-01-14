@@ -56,6 +56,7 @@ export function useNotes() {
   function popupToggle(note) {
     this.noteForDelete = note ? note : "";
     setPopupStatus(prev => !prev);
+    this.viewBlur = popupStatus;
   }
 
   return {

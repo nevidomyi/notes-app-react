@@ -6,7 +6,7 @@ import { Popup } from "./Popup";
 
 export function View({ notes, current, setCurrent, create, deleteNote, update, popupToggle}) {
   return (
-    <div className="view">
+    <div className="view ${}">
       <Split sizes={[30, 70]} direction="horizontal" className="split">
         <Sidebar
           notes={notes}
