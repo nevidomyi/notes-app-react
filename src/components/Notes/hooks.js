@@ -10,6 +10,7 @@ export function useNotes() {
   const [notes, setNotes] = React.useState(() => notesLocal || []);
   const [current, setCurrent] = React.useState(notes[0]);
   const [popupStatus, setPopupStatus] = React.useState(false);
+  const [noteForDelete, setNoteForDelete] = React.useState({});
 
   React.useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -48,15 +49,18 @@ export function useNotes() {
 
   /* Popup's functions */
 
-  function deleteNote(note) {
-    remove(note);
+  function deleteNote() {
+    remove(noteForDelete);
     popupToggle();
   }
 
   function popupToggle(note) {
-    this.noteForDelete = note ? note : "";
+    setNoteForDelete(prev => prev = (note ? note : {}));
     setPopupStatus(prev => !prev);
-    this.viewBlur = popupStatus;
+  }
+
+  function getPopupStatus() {
+    return popupStatus;
   }
 
   return {
@@ -64,9 +68,11 @@ export function useNotes() {
     create,
     update,
     // remove,
-    deleteNote,
-    popupToggle,
     current,
     setCurrent,
+    popupToggle,
+    deleteNote,
+    getPopupStatus,
+    setNoteForDelete
   };
 }

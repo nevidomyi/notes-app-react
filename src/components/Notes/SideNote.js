@@ -1,5 +1,9 @@
-export function SideNote({ note, setCurrent, current, popupToggle }) {
+import React from "react";
+import { popupContext } from "./Context";
+
+export function SideNote({ note, setCurrent, current}) {
   const className = "title " + (note.id === current.id ? "selected-note" : "");
+  const { popupToggle } = React.useContext(popupContext);
 
   return (
     <div key={note.id}>
