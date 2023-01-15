@@ -235,7 +235,7 @@ button:focus {
     justify-content: space-between;
 }
 
-button {
+.popup button {
     padding: 5px 10px;
     font-size: 1em;
     background-color: #4A4E74;
