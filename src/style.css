@@ -245,7 +245,7 @@ button:focus {
     cursor: pointer;
 }
 
-button:hover {
+.popup button:hover {
     background-color: #3A3E74;
 }
 
