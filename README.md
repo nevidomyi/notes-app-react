@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Notes App by React
+
+Practicing with React. In this app I've tried use outsider modules, particularly module for MDE markup. 
+
+### Example
+
+![Example](https://user-images.githubusercontent.com/47025875/215271327-3931f616-35c4-48b4-9b9f-d83f8ac44796.png)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
